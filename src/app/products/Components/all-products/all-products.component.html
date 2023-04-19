@@ -1,0 +1,330 @@
+
+
+<!-- قسم العروض -->
+<div id="carouselExampleSlidesOnly" class="carousel slide"
+data-bs-ride="carousel" style="padding: 50px;cursor: pointer; ">
+    <div class="carousel-inner" >
+      <div class="carousel-item active">
+        <img src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/banner/r/a/ramadan_cat_60_mp-deal__web-banner__2368x800_ar_1.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/banner/c/o/cookers_web-banner__2368x800_ar.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/banner/r/e/refrigerators_freezersweb-banner__2368x800_ar.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/banner/r/a/ramadan_cat_mp-deal__web-banner__2368x800_ar.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/banner/r/a/ramadan_mc_online_10__generic__web-banner__2368x800_ar_1_.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/banner/w/e/web_arrr_mobiles.png" class="d-block w-100" alt="...">
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+<!------------------------------------------ section 2 image categories ----------------------------------->
+
+<div class="row">
+  <div id="carouselExample" class="carousel slide" >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row">
+          <div class="col-2 d-flex justify-content-center"*ngFor="let item of categories" >
+            <div *ngIf="item.id<=25" (click)="OpenPrdByCatId(item.id)">
+              <img src={{item.imagePath}} class="  img-fluid" alt="..."  width="100em" >
+              <p *ngIf="currentCulture=='ar'" class="card-title text-center" style="font-size:smaller;">{{item.nameArabic}}</p>
+              <p *ngIf="currentCulture=='en'" class="card-title text-center" style="font-size:smaller;">{{item.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row " >
+          <div class="col-2 d-flex justify-content-center"*ngFor="let item of categories" >
+            <div  *ngIf="item.id>25" (click)="OpenPrdByCatId(item.id)">
+              <img src={{item.imagePath}} class=" img-fluid" alt="..."  width="100em">
+              <p *ngIf="currentCulture=='ar'" class="card-title text-center" style="font-size:smaller;">{{item.nameArabic}}</p>
+              <p *ngIf="currentCulture=='en'" class="card-title text-center" style="font-size:smaller;">{{item.name}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+      </div>
+
+
+
+         <!-- ---------------------------------------MiniCash--------------------------- -->
+<div class="row">
+  <img src="assets\PannerAr.JPG" *ngIf="currentCulture=='ar'" class="rounded img-fluid" >
+  <img src="assets\PannerEn.JPG" *ngIf="currentCulture=='en'" class="rounded img-fluid" >
+</div>
+
+    <!-- ---------------------------------------Recently Viewed--------------------------- -->
+<div class="row  my-2" >
+  <h4 *ngIf="currentCulture=='ar'" class="text-end p-5" >{{"المعروض مؤخرا"}}</h4>
+  <h4 *ngIf="currentCulture=='en'" class="text-end p-5" >{{"Recently Viewed"}}</h4>
+
+  <div class="col-2 d-flex justify-content-center "*ngFor="let item of Productslastseen" (click)="OpenPrdDetails(item.id)">
+<div *ngIf="item.id<=23" (click)="OpenPrdDetails(item.id)">
+      <img src={{item.imagePath}} class="img-thumbnail img-fluid" alt="..." width="100em">
+    </div>
+  </div>
+</div>
+<br>
+<!-- ---------------------------------------ramadan Offers--------------------------- -->
+<div class="row" id="imgBG">
+
+<div class="col-sm-12 col-md-10 col-lg-8">
+  <div id="carouselExample" class="carousel slide" >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row "  >
+          <div class="col-4 d-flex justify-content-center"*ngFor="let item of Productslastseen" (click)="OpenPrdDetails(item.id)">
+            <div  *ngIf="item.id<=19">
+              <div class="card mx-1" >
+                <img src="{{item.imagePath}}" class="card-img-top" alt="..."width="50em">
+                <div class="card-body">
+                  <h5 *ngIf="currentCulture=='ar'" class="card-title">{{item.nameArabic}}</h5>
+                  <h5 *ngIf="currentCulture=='en'" class="card-title">{{item.name}}</h5>
+                  <p *ngIf="currentCulture=='ar'" class="card-text">{{item.discriptionArabic}}</p>
+                  <p *ngIf="currentCulture=='en'" class="card-text">{{item.discription}}</p>
+                  <p style="color: brown;">{{item.price|currency}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row "  >
+          <div class="col-4 d-flex justify-content-center"*ngFor="let item of Productslastseen"(click)="OpenPrdDetails(item.id)">
+            <div  *ngIf="item.id>21 && item.id<=25" >
+              <div class="card mx-1" >
+                <img src="{{item.imagePath}}" class="card-img-top" alt="..."width="50em">
+                <div class="card-body">
+                  <h5 *ngIf="currentCulture=='ar'" class="card-title">{{item.nameArabic}}</h5>
+                  <h5 *ngIf="currentCulture=='en'" class="card-title">{{item.name}}</h5>
+                  <p *ngIf="currentCulture=='ar'" class="card-text">{{item.discriptionArabic}}</p>
+                  <p *ngIf="currentCulture=='en'" class="card-text">{{item.discription}}</p>
+                  <p style="color: brown;">{{item.price|currency}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="col-sm-0 col-md-2 col-lg-4 d-flex justify-content-center align-items-center flex-column">
+  <h2 style="color: white;" *ngIf="currentCulture=='ar'" class="card-title ">{{" عروض رمضان"}}</h2>
+  <h2 style="color: white;" *ngIf="currentCulture=='en'" class="card-title ">{{"Ramadan Offers"}}</h2>
+  <a *ngIf="currentCulture=='en'" href="#" class="btn btn-light my-2">{{"Shop Now"}}</a>
+  <a *ngIf="currentCulture=='ar'" href="#" class="btn btn-light my-2">{{"تسوق الان"}}</a>
+
+</div>
+      </div>
+    <!-- ---------------------------------------section3 card body--------------------------- -->
+
+
+
+
+
+  <div class="my-2" >
+      <h4 class="text-end p-5">{{"New arrivals"|translate}}</h4>
+
+      <div class="row row-cols-1 row-cols-md-4 " >
+
+        <div class="col p-0" *ngFor="let prd of Productslastseen " (click)="OpenPrdDetails(prd.id)">
+          <div class="card ">
+            <div class="d-flex justify-content-center align-items-center">
+              <img  src={{prd.imagePath}}  style="width: auto; height: 150px;" alt="...">
+            </div>
+            <div class="card-body justify-content-center align-items-center">
+
+                <p *ngIf="currentCulture == 'ar'" class="fs-5 fw-bold" >{{ prd.nameArabic }}</p>
+
+              <p *ngIf="currentCulture == 'en'"class="fs-5 fw-bold"  >{{ prd.name }}</p>
+              <div >
+                <div class="price d-flex flex-row justify-content-center align-items-center">
+                    <div class="text-danger ml-2 justify-content-center align-items-center"> <del class="dis-price">{{prd.price}} {{" EGP "|translate}}</del> <br> <span>{{"OFF"|translate}}%{{prd.discount}} </span><br> <span style="color: black;" class="act-price ">{{prd.price-prd.price*prd.discount/100}} {{" EGP "|translate}}</span></div>
+                    <br>
+
+                </div>
+
+              </div>
+             <div *ngIf="prd.discount==0">
+                    <div class="price d-flex justify-content-center align-items-center"> <span class="act-price">{{prd.price-prd.price*prd.discount/100}} {{" EGP "|translate}}</span>
+                    <div class="ml-2">  </div>
+                </div>
+              </div>
+              <br>
+
+            </div>
+
+        </div>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- ---------------------------------------MINI CASH--------------------------- -->
+<div class="row" id="imgBG">
+
+  <div class="col-sm-12 col-md-10 col-lg-8">
+    <div id="carouselExample" class="carousel slide" >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row "  >
+            <div class="col-4 d-flex justify-content-center"*ngFor="let item of Productslastseen" (click)="OpenPrdDetails(item.id)">
+              <div  *ngIf="item.id<=19">
+                <div class="card mx-1" >
+                  <img src="{{item.imagePath}}" class="card-img-top" alt="..."width="50em">
+                  <div class="card-body">
+                    <h5 *ngIf="currentCulture=='ar'" class="card-title">{{item.nameArabic}}</h5>
+                    <h5 *ngIf="currentCulture=='en'" class="card-title">{{item.name}}</h5>
+                    <p *ngIf="currentCulture=='ar'" class="card-text">{{item.discriptionArabic}}</p>
+                    <p *ngIf="currentCulture=='en'" class="card-text">{{item.discription}}</p>
+                    <p style="color: brown;">{{item.price|currency}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row "  >
+            <div class="col-4 d-flex justify-content-center"*ngFor="let item of Productslastseen"(click)="OpenPrdDetails(item.id)">
+              <div  *ngIf="item.id<=25 && item.id>28 " >
+                <div class="card mx-1" >
+                  <img src="{{item.imagePath}}" class="card-img-top" alt="..."width="50em">
+                  <div class="card-body">
+                    <h5 *ngIf="currentCulture=='ar'" class="card-title">{{item.nameArabic}}</h5>
+                    <h5 *ngIf="currentCulture=='en'" class="card-title">{{item.name}}</h5>
+                    <p *ngIf="currentCulture=='ar'" class="card-text">{{item.discriptionArabic}}</p>
+                    <p *ngIf="currentCulture=='en'" class="card-text">{{item.discription}}</p>
+                    <p style="color: brown;">{{item.price|currency}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-0 col-md-2 col-lg-4 d-flex justify-content-center align-items-center flex-column">
+    <h2 style="color: white;" *ngIf="currentCulture=='ar'" class="card-title ">{{" عروض رمضان"}}</h2>
+    <h2 style="color: white;" *ngIf="currentCulture=='en'" class="card-title ">{{"Mini Cash Offers"}}</h2>
+    <a *ngIf="currentCulture=='en'" href="#" class="btn btn-light my-2">{{"Shop Now"}}</a>
+    <a *ngIf="currentCulture=='ar'" href="#" class="btn btn-light my-2">{{"تسوق الان"}}</a>
+
+  </div>
+        </div>
+
+      <!-- ---------------------------------------section3 card body--------------------------- -->
+<!-- قسم مزايا بى تك -->
+
+<div id="carouselExampleControls"  class="carousel slide"  style="cursor:pointer;">
+  <h4 class="text-end p-5">{{"Why B.TECH"}}</h4>
+<div class="row align-items-center justify-content-center">
+<div class="col-lg-3 col-sm-6">
+<img *ngIf="currentCulture == 'en'" src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/exclusive/v/a/value_propositions1_4x.png" class="img-fluid"  >
+<img *ngIf="currentCulture == 'ar'" src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/exclusive/v/a/value_propositions_rtl1_4x.png" class="img-fluid"  >
+</div>
+<div class="col-lg-3 col-sm-6">
+  <img *ngIf="currentCulture == 'en'" src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/exclusive/v/a/value_propositions3_4x.png"  class="img-fluid">
+  <img *ngIf="currentCulture == 'ar'" src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/exclusive/v/a/value_propositions_rtl3_4x.png" class="img-fluid"  >
+</div>
+  <div class="col-lg-3 col-sm-6">
+    <img *ngIf="currentCulture == 'en'" src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/exclusive/v/a/value_propositions4_4x.png" class="img-fluid" >
+    <img *ngIf="currentCulture == 'ar'" src="https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/exclusive/v/a/value_propositions_rtl4_4x.png" class="img-fluid"  >
+  </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- ---------------------------------------section4 card body--------------------------- -->
+<!-- افضل العروض -->
+
+<div>
+
+  <h4 class="text-end p-5">{{"Top offers"|translate}}</h4>
+  <div class="row row-cols-1 row-cols-md-4 ">
+
+    <div class="col p-0" *ngFor="let prd of Productslastseen "(click)="OpenPrdDetails(prd.id)">
+
+      <div *ngIf="prd.discount>20 &&prd.id<=6">
+
+        <div class="card">
+          <div class="d-flex justify-content-center">
+            <img src={{prd.imagePath}} style="width: auto; height: 150px;" alt="...">
+          </div>
+          <div class="card-body">
+            <div *ngIf="currentCulture != 'en'">
+              <div class="fs-5 fw-bold">{{ prd.nameArabic }}</div>
+            </div>
+            <div *ngIf="currentCulture == 'en'">
+              <div class="fs-5 fw-bold">{{ prd.name }}</div>
+            </div>
+            <div>
+              <div class="price d-flex flex-row align-items-center">
+                <div class="text-danger ml-2"> <small class="dis-price">{{prd.price}} {{" EGP "|translate}}</small>
+                  <br> <span>{{"OFF"|translate}}%{{prd.discount}} </span> </div>
+                <br>
+
+              </div>
+              <span class="act-price">{{prd.price-prd.price*prd.discount/100}} {{" EGP "|translate}}</span>
+            </div>
+
+            <br>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+

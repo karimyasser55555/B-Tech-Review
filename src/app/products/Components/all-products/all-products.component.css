@@ -1,0 +1,75 @@
+/* -----------------------------section2---------------------------- */
+* {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+
+
+/* Create three equal columns that sits next to each other */
+
+  /* -----------------------------section3---------------------------- */
+
+
+
+.carouselExampleControls{
+  padding:5%;
+}
+
+/* @media (min-width: 768px) {
+    .carousel-inner {
+      display: flex;
+    }
+    .carousel-item {
+      margin-right: 0;
+      flex: 0 0 25%;
+      display: block;
+    }
+  }
+
+  .carousel-inner{
+    padding: 1em;
+} */
+
+.card:hover{
+  
+	box-shadow: 0 20px 40px rgba(72,78,85,.6);
+
+	transform: translateY(-15px);
+    /* box-shadow: 2px 6px 8px 0 rgb(186, 186, 186); */
+
+
+}
+.carousel-control-prev, .carousel-control-next{
+    background-color: #e1e1e1;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* -----------------------------section3---------------------------- */
+/* @media (min-width: 768px) {
+  .carousel-inner {
+    display: flex;
+  }
+  .carousel-item {
+    margin-right: 0;
+    flex: 0 0 25%;
+    display: block;
+  }
+} */
+#imgBG{
+  /* background-image: url("https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/campaign/p/u/purple_desktop_rtl_1.png"); */
+  background-image: url(https://btech.com/cdn-cgi/image/quality=50,format=auto/media/homecontent/campaign/m/u/multicolor_desktop_1.png);
+  background-color: #000000;
+}
+.carousel-inner{
+  padding: 1em;
+}
+.card{
+margin: 0;
+padding: 0;
+border-radius: 0;
+
+}
