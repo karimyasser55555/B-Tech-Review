@@ -1,0 +1,126 @@
+<nav class="navbar navbar-expand-sm bg-light shadow p-3 bg-body rounded" style="direction: rtl">
+  <div class="container-fluid justify-content-center">
+    <a class="navbar-brand" routerLink="/Home"><img src="assets\B-TechLogo.PNG" /></a>
+  </div>
+
+  <div *ngIf="currentCulture == 'ar'">
+    <span class="navbar-text" style="
+        color: BLACK;
+        font-size: small;
+        margin-right: 10px;
+        cursor: pointer;
+      " (click)="translate.use('en')">
+      English
+    </span>
+  </div>
+  <div *ngIf="currentCulture == 'en'">
+    <span class="navbar-text" style="color: BLACK; font-size: small; cursor: pointer" (click)="translate.use('ar')">
+      عربي
+    </span>
+  </div>
+</nav>
+
+
+
+
+
+<div class="row" style="margin: 20px">
+  <div class="xl-col-6 sm-col-9">
+      <p class="d-flex justify-content-center fs-3  ">
+          {{ "!Welcome To Registration Page "}}
+      </p>
+  </div></div>
+  <div class="row" style="margin: 20px">
+    <div class="xl-col-3 sm-col-6">
+        <p class="d-flex justify-content-center fs-6 text-secondary ">
+            {{ "Sign Up to your B.TECH account and explore our latest exclusive offers" }}
+        </p>
+    </div></div>
+<div class="container-fluid as-full" style="margin-top: 40px ; margin-bottom: 30px;">
+  <div class="row as-full d-flex justify-content-center">
+    <div class="col-5 align-self-center">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">
+            <i class="fa fa-utensils"></i> {{ "Sign UP" }}
+          </h5>
+        <div class="text-center text-danger">
+          <p>{{mess}}</p>
+        </div>
+          <br/>
+
+<form (ngSubmit)="proceedregister()" #RegisterFormRef="ngForm">
+
+
+  <div class="mb-3">
+    <label for="fName" class="form-label">First Name</label>
+    <input type="text" #FirstNameInput="ngModel" class="form-control" name="fName" id="fName" [(ngModel)]="userregister.FirstName" required pattern="[A-Za-z]{2,10}" [class.is-valid]="FirstNameInput.valid" [class.is-invalid]="FirstNameInput.invalid">
+
+    <div class="alert alert-danger" [hidden]="FirstNameInput.valid || FirstNameInput.untouched">
+      <div *ngIf="FirstNameInput.errors?.['required']">First Name is required</div>
+      <div *ngIf="FirstNameInput.errors?.['pattern']">First name is must be at least 2 characters</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="lName" class="form-label">Last Name</label>
+    <input type="text" #LastNameInput="ngModel" class="form-control" name="lName" id="lName" [(ngModel)]="userregister. LastName" required pattern="[A-Za-z]{2,10}" [class.is-valid]="LastNameInput.valid" [class.is-invalid]="LastNameInput.invalid">
+
+    <div class="alert alert-danger" [hidden]="LastNameInput.valid || LastNameInput.untouched">
+      <div *ngIf="LastNameInput.errors?.['required']">Last Name is required</div>
+      <div *ngIf="LastNameInput.errors?.['pattern']">Last name is must be at least 2 characters</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="uName" class="form-label">User Name</label>
+    <input type="text" #UserNameInput="ngModel" class="form-control" name="uName" id="uName" [(ngModel)]="userregister.UserName" required pattern="[A-Za-z]{2,10}" [class.is-valid]="UserNameInput.valid" [class.is-invalid]="UserNameInput.invalid">
+
+    <div class="alert alert-danger" [hidden]="UserNameInput.valid || UserNameInput.untouched">
+      <div *ngIf="UserNameInput.errors?.['required']">UserName Name is required</div>
+      <div *ngIf="UserNameInput.errors?.['pattern']">UserName name is must be at least 2 characters</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email </label>
+    <input type="text" #EmailInput="ngModel" class="form-control" name="email" id="email" [(ngModel)]="userregister.Email" required pattern="^[a-zA-Z]{3,20}[1-9]*@(gmail|yahoo|outlook)(.com|.sa)" [class.is-valid]="EmailInput.valid" [class.is-invalid]="EmailInput.invalid">
+
+    <div class="alert alert-danger" [hidden]="EmailInput.valid || EmailInput.untouched">
+      <div *ngIf="EmailInput.errors?.['required']">Email is required</div>
+      <div *ngIf="EmailInput.errors?.['pattern']">Email is must be at least 2 characters</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="pass" class="form-label">Password</label>
+    <input type="password" #PasswordInput="ngModel" class="form-control" name="pass" id="pass" [(ngModel)]="userregister.Password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [class.is-valid]="PasswordInput.valid" [class.is-invalid]="PasswordInput.invalid">
+
+    <div class="alert alert-danger" [hidden]="PasswordInput.valid || PasswordInput.untouched">
+      <div *ngIf="PasswordInput.errors?.['required']">Password is required</div>
+      <div *ngIf="PasswordInput.errors?.['pattern']">Password is must be at least 2 characters</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="cpass" class="form-label">Confirmed Password</label>
+    <input type="password" #CPasswordInput="ngModel" class="form-control" name="cpass" id="cpass" [(ngModel)]="userregister.ConfirmedPassword" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [class.is-valid]="CPasswordInput.valid" [class.is-invalid]="CPasswordInput.invalid" >
+
+    <div class="alert alert-danger" [hidden]="CPasswordInput.valid || CPasswordInput.untouched ">
+      <div *ngIf="CPasswordInput.errors?.['required']">Confirmed Password is required</div>
+      <div *ngIf="CPasswordInput.errors?.['pattern']">Password must contain at least one number, one uppercase and a lowercase letter
+        and at least 8 characters<br>Password cannot contain whitespace</div>
+
+    </div>
+  </div>
+  <div class="mt-3 text-center">
+    <button type="submit" class="btn btn-success text-center mb-3" [disabled]="RegisterFormRef.invalid">Save</button>
+    <div class="mt-3 text-center"><a href="/Acount" mat-raised-button color="accent">Back to Login</a></div>
+  </div>
+
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
