@@ -1,0 +1,133 @@
+<br><br><br>
+<div *ngIf="length != 0">
+
+
+
+
+
+  <div class="row " >
+    <div class="col-lg-7 col-sm-12">
+      <div class="row card-title" >
+        <h3 class="card" *ngIf="currentCulture=='ar'"> ا/طريقة الدفع</h3>
+        <h3 class="card" *ngIf="currentCulture=='en'">Payment Method /1</h3>
+      </div>
+<div class="row">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
+      <label class="form-check-label" for="firstRadio">{{"Cash"|translate}}</label>
+    </li>
+    <li class="list-group-item" (click)="Paypal()">
+      <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio" >
+      <label class="form-check-label" for="secondRadio" >
+        Paypal
+
+
+
+      </label>
+    </li>
+
+  </ul>
+</div>
+
+
+    </div>
+    <div class="col-lg-5  col-sm-12">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title" *ngIf="currentCulture=='ar'" > الطلب </h5>
+          <h5 class="card-title" *ngIf="currentCulture=='en'" > Order  </h5>
+          <div class="row" style="margin: 20px"  *ngFor="let data of items; let i = index" [hidden]="data.avaiUnit==0">
+
+            <div class="col-lg-2 col-md-2 col-sm-12">
+              <img
+              src= {{data.imagesPath}}
+                class="img-fluid"
+                style="height: 40px"
+              />
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div *ngIf="currentCulture == 'ar'">
+                {{ data.nameArabic }}
+              </div>
+              <div *ngIf="currentCulture == 'en'">
+               {{ data.name }}
+            </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-2 col-sm-12">
+             <div class="d-flex">
+
+              <div style="margin: 3px;"> {{ data.price }}</div>
+             </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12" >
+
+              <input style="width: 70px;margin: 3px;"
+                type="number "
+
+                [(ngModel)]="items[i].avaiUnit"
+                (ngModelChange)="calcTotalPrice()"
+
+                />
+
+
+            </div>
+            <hr>
+
+            <!-- <div class="row" style="margin: 20px ;" > {{"Total price"|translate}} :{{ items[i].avaiUnit * data.price }}</div> -->
+
+
+
+          </div>
+          <div > <label class="m-1 fw-bold" for="TotalPrice"> {{"Order Total Price"|translate}}</label><input class="m-1" type="text" id="TotalPrice" [(ngModel)]="TotalPrice"  /></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+<button (click)="sendOrder()"> Order Now</button>
+
+
+
+
+
+<!-- Content if no item in Shopping cart -->
+<div *ngIf="length == 0">
+  <div class="container-fluid mt-100">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header"></div>
+          <div class="card-body cart">
+            <div class="col-sm-12 empty-cart-cls text-center">
+              <img
+                src="https://i.imgur.com/dCdflKN.png"
+                width="130"
+                height="130"
+                class="img-fluid mb-4 mr-3"
+              />
+              <h3><strong>{{"Your Cart is Empty"|translate}}</strong></h3>
+              <h4>{{" You Can choice From Our Product"|translate}}</h4>
+              <a
+                href="/Products"
+                class="btn btn-primary cart-btn-transform m-3"
+                data-abc="true"
+                > {{"shopping"|translate}}</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br><br><br>
+

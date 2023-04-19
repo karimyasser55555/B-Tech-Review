@@ -1,0 +1,15 @@
+<!-- <p>wish-list works!</p> -->
+
+<h2>Your Wish List</h2>
+<div *ngFor="let prd of wishlist">
+  <img [src]="prd.imagePath" class="p-5">
+
+   <p  class="m-2  ">{{prd.discription}}</p>
+<div class="d-flex flex-row">
+<span class="m-3 fw-semibold d-inline  text-decoration-line-through text-muted"> {{prd.price  }}</span>
+<span class="m-3 fw-semibold d-inline "> {{prd.price-prd.discount*prd.price/100  }}</span>
+
+</div>
+  <!-- <button class="btn btn-danger " (click)="">Remove from wish list</button> -->
+</div>
+
